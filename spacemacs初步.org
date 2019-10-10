@@ -45,6 +45,11 @@ dotspacemacs-excluded-packages '()这个配置可以在下次启动是删除自�
 注意～
 spacemacs在linux环境下是无法调用google拼音的，但是可以调用搜狗拼音，而emacs内置的pyim很不好用，
 因此建议如果要在emacs中使用中文，建议安装搜狗拼音
+** 更新
+   develop分支下，先用终端进入到.emacs.d文件夹中
+   然后输入以下命令：
+$ git pull --rebase
+   master分支可直接点击主页上的update按键
 ** TODO ubuntu安装搜狗拼音方法
 从官网上下载搜狗拼音的安装包
 
