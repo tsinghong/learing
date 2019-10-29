@@ -131,4 +131,47 @@ C-c C-x v(org-copy-visible)
     #+STARTUP: content
     #+STARTUP: showall
     #+STARTUP: showeverything
-    此外，          
+    此外，任意带有‘可视化’属性的入口都可以获得可视化，并且可以根据情况进行
+调整。可以依据的属性有“折叠”，“子”，“目录”，和“全部”。
+C-u C-u TAB（org-set-startup-visibility）
+    回跳至当前编辑区的开始视图。简单的说，无论开始选项或是可视化属性在个人
+入口是什么，都可以被调用。
+*** 2.2.3获取隐藏编辑内容
+    某些时候，你可能不经意地编辑了编辑区的隐藏内容，还混淆了编辑的内容，还不知道
+如何撤销这个错误的编辑。设置org-catah-invisible-edits这个变量为non-nil
+可以解决这个问题。查看这个变量的文档，你可以了解org是如何获取不可视的编辑内容
+和处理过程。
+** 操作
+   以下命令可以在编辑区的标题之间进行跳转。
+C-c C-n(org-next-visible-heading)
+   下一标题
+C-c C-p(org-previous-visible-heading)
+   上一标题
+C-c C-f(org-forward-heading-same-level)
+   同级的下一标题
+C-c C-b(org-backward-heading-same-level)
+   同级的上一标题
+C-c C-u(outline-up-heading)
+   回到高一级的标题
+C-c C-j(org-goto)
+   在不改变当前大纲视图的情况下跳转到不同位置。在一个临时编辑区显示文档的结构，
+你可以使用一下按键达到你的目的：
+   TAB         循环视图
+   DOWN/UP     上/下一个可视的标题
+   RET         选择这个位置
+   /           Sparse-tree搜索
+   如果你关闭org-goto-auto-isearch，就可以使用一下快捷键。
+   n/p          下/上一个可视标题
+   f/b          下/上一个同级标题
+   u            上一级标题
+   0....9       数字参数
+   q            退出
+   请查看变量org-goto-interface文档。
+** 结构编辑
+ M-RET(org-meta-return)
+     插入一个新的标题，条目或行。
+     如果这个
+
+
+
+     
