@@ -65,7 +65,7 @@ transient-mark-mode，默认情况下是打开的。如果你不喜欢transient-
 来说，是组织笔记和想法的最好呈现。这个结构的总览是由折叠来完成的，例如隐藏文件的
 大部分内容，只显示文件的概览及正在工作的部分。org通过一个单独的org折叠循环命令
 来折叠显示的内容和隐藏功能，极大地简化了内容显示，这个循环功能绑定在了TAB键上。
-** 标题
+** 2.1标题
    标题定义了文件的大纲树。标题在org中以*号开头，在页面的边缘。举例来说，
   * 一级标题
   ** 二级标题
@@ -141,50 +141,71 @@ C-u C-u TAB（org-set-startup-visibility）
 可以解决这个问题。查看这个变量的文档，你可以了解org是如何获取不可视的编辑内容
 和处理过程。
 ** 2.3操作
-   以下命令可以在编辑区的标题之间进行跳转。
-C-c C-n(org-next-visible-heading)
-   下一标题
-C-c C-p(org-previous-visible-heading)
-   上一标题
-C-c C-f(org-forward-heading-same-level)
-   同级的下一标题
-C-c C-b(org-backward-heading-same-level)
-   同级的上一标题
-C-c C-u(outline-up-heading)
-   回到高一级的标题
-C-c C-j(org-goto)
-   在不改变当前大纲视图的情况下跳转到不同位置。在一个临时编辑区显示文档的结构，
-你可以使用一下按键达到你的目的：
-   TAB         循环视图
-   DOWN/UP     上/下一个可视的标题
-   RET         选择这个位置
-   /           Sparse-tree搜索
-   如果你关闭org-goto-auto-isearch，就可以使用一下快捷键。
-   n/p          下/上一个可视标题
-   f/b          下/上一个同级标题
-   u            上一级标题
-   0....9       数字参数
-   q            退出
-   请查看变量org-goto-interface文档。
+    以下命令可以在编辑区的标题之间进行跳转。
+ C-c C-n(org-next-visible-heading)
+    下一标题
+ C-c C-p(org-previous-visible-heading)
+    上一标题
+ C-c C-f(org-forward-heading-same-level)
+    同级的下一标题
+ C-c C-b(org-backward-heading-same-level)
+    同级的上一标题
+ C-c C-u(outline-up-heading)
+    回到高一级的标题
+ C-c C-j(org-goto)
+    在不改变当前大纲视图的情况下跳转到不同位置。在一个临时编辑区显示文档的结构，
+ 你可以使用一下按键达到你的目的：
+    TAB         循环视图
+    DOWN/UP     上/下一个可视的标题
+    RET         选择这个位置
+    /           Sparse-tree搜索
+    如果你关闭org-goto-auto-isearch，就可以使用一下快捷键。
+    n/p          下/上一个可视标题
+    f/b          下/上一个同级标题
+    u            上一级标题
+    0....9       数字参数
+    q            退出
+    请查看变量org-goto-interface文档。
 ** 2.4结构编辑
- M-RET(org-meta-return)
-     插入一个新的标题，条目或行。
-     如果在一行的开头及一个标题，或在光标处有一个纯列表项使用这个命令，会在当前
-     行之前创建一个新的标题或是项目。当这个命令用在文字内容的某一行的开头，它将
-     会把这一行转换成标题。
-     当这个命令用在一行的中间位置，这行将会被分开，后面的部分将会转换成新的项目
-     或是标题。如果你不想要这行被分开，请自定义变量org-M-RET-may-split-line。
-     在这个命令前加上前缀C-u将会在当前的子目录的最后创建一个新的标题，同时保留
-     原目录。加上双前缀C-u C-u的话，将会在父级次目录下创建一个新标题。
+  M-RET(org-meta-return)
+      插入一个新的标题，条目或行。
+      如果在一行的开头及一个标题，或在光标处有一个纯列表项使用这个命令，会在当前
+      行之前创建一个新的标题或是项目。当这个命令用在文字内容的某一行的开头，它将
+      会把这一行转换成标题。
+      当这个命令用在一行的中间位置，这行将会被分开，后面的部分将会转换成新的项目
+      或是标题。如果你不想要这行被分开，请自定义变量org-M-RET-may-split-line。
+      在这个命令前加上前缀C-u将会在当前的子目录的最后创建一个新的标题，同时保留
+      原目录。加上双前缀C-u C-u的话，将会在父级次目录下创建一个新标题。
 
-C-RET（org-insert-heading-respcet-content）
-     在当前子目录的最后插入一个新标题。
+ C-RET（org-insert-heading-respcet-content）
+      在当前子目录的最后插入一个新标题。
 
-M-S-RET(org-insert-todo-heading)
-     插入一个与当前标题同级的TODO事项。如果是在一行文字的中间，则把光标所在位置
-     往后的内容另起一行并建立
-     可参考变量org-treat-insert-todo-heading-as-state-change。
+ M-S-RET(org-insert-todo-heading)
+      插入一个与当前标题同级的TODO事项。如果是在一行文字的中间，则把光标所在位置
+      往后的内容另起一行并建立一个新的TODO事项。
+      可参考变量org-treat-insert-todo-heading-as-state-change。
 
-C-S-RET(org-insert-todo-heading-respect-content)
-     
+ C-S-RET(org-insert-todo-heading-respect-content)
+      在当前子目录的最后插入一个新的TODO事项。
+
+ TAB(org-cycle)
+      在一个没有内容的开头，输入一个*使其成为一级标题，按下tab键后使其转换成二级标题
+      再次按下后转换成二级标题，再次按下后转换成三级标题，最后按下则又转换成一级标题，
+      如此往复循环。
+
+ M-LEFT(org-do-promote)
+ M-RIGHT(org-do-demote)
+       这两个命令是将一个标题的级别升高或减小。
+ M-S-LEFT(org-do-subtree)
+ M-S-RIGHT(org-do-subtree)
+       将一个子目录级别升高或减小
+
+M-UP(org-move-subtree-up)
+M-DOWN(org-move-subtree-down)
+       这两个命令是可以将同级的标题相互的上下移动。
+
+C-c @(org-mark-subtree)
+       全选光标所在的子目录/标题，包含标题。持续按这个组合键将继续向下选定同级标题及
+       其内容。
+
 
