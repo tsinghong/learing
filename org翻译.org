@@ -122,7 +122,6 @@ C-c C-x b(org-tree-to-indirect-buffer)
 C-c C-x v(org-copy-visible)
        复制该区域的可见内容至粘贴板。
 
-
 *** 2.2.2初始化视图
     当emacs第一次访问一个org文件，全局状态默认为大纲预览。比如，只看到该文档
 的一级标题。可以在org-startup-folded变量中进行修改。也可以在每一个文件底部
@@ -141,7 +140,7 @@ C-u C-u TAB（org-set-startup-visibility）
 如何撤销这个错误的编辑。设置org-catah-invisible-edits这个变量为non-nil
 可以解决这个问题。查看这个变量的文档，你可以了解org是如何获取不可视的编辑内容
 和处理过程。
-** 操作
+** 2.3操作
    以下命令可以在编辑区的标题之间进行跳转。
 C-c C-n(org-next-visible-heading)
    下一标题
@@ -167,11 +166,25 @@ C-c C-j(org-goto)
    0....9       数字参数
    q            退出
    请查看变量org-goto-interface文档。
-** 结构编辑
+** 2.4结构编辑
  M-RET(org-meta-return)
      插入一个新的标题，条目或行。
-     如果这个
+     如果在一行的开头及一个标题，或在光标处有一个纯列表项使用这个命令，会在当前
+     行之前创建一个新的标题或是项目。当这个命令用在文字内容的某一行的开头，它将
+     会把这一行转换成标题。
+     当这个命令用在一行的中间位置，这行将会被分开，后面的部分将会转换成新的项目
+     或是标题。如果你不想要这行被分开，请自定义变量org-M-RET-may-split-line。
+     在这个命令前加上前缀C-u将会在当前的子目录的最后创建一个新的标题，同时保留
+     原目录。加上双前缀C-u C-u的话，将会在父级次目录下创建一个新标题。
 
+C-RET（org-insert-heading-respcet-content）
+     在当前子目录的最后插入一个新标题。
 
+M-S-RET(org-insert-todo-heading)
+     插入一个与当前标题同级的TODO事项。如果是在一行文字的中间，则把光标所在位置
+     往后的内容另起一行并建立
+     可参考变量org-treat-insert-todo-heading-as-state-change。
 
+C-S-RET(org-insert-todo-heading-respect-content)
      
+
