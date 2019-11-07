@@ -167,7 +167,7 @@ C-u C-u TAB（org-set-startup-visibility）
     q            退出
     请查看变量org-goto-interface文档。
 ** 2.4结构编辑
-  M-RET(org-meta-return)
+  M-RET(org-meta-return) (该命令在spacemacs下无用，变成M-RET RET)
       插入一个新的标题，条目或行。
       如果在一行的开头及一个标题，或在光标处有一个纯列表项使用这个命令，会在当前
       行之前创建一个新的标题或是项目。当这个命令用在文字内容的某一行的开头，它将
@@ -204,8 +204,18 @@ M-UP(org-move-subtree-up)
 M-DOWN(org-move-subtree-down)
        这两个命令是可以将同级的标题相互的上下移动。
 
-C-c @(org-mark-subtree)
+C-c @(org-mark-subtree)  
        全选光标所在的子目录/标题，包含标题。持续按这个组合键将继续向下选定同级标题及
        其内容。
 
+C-c C-x C-w(org-cut-subtree)
+       删除一个标题及其内容，并放在粘贴板中。此命令只对标题生效。此命令可以带一个
+       前缀参数N，表示删除连续的N个标题。
 
+C-c C-x M-w(org-copysubtree)(该命令在spacemacs下无用，可以用p命令粘贴)
+       把粘贴板中的内容粘贴进来，可以带前缀参数N，功能同上。
+
+C-c C-x C-y(org-paste-subtree)
+       粘贴一个标题及其内容，并放在粘贴板中。此命令只对标题生效。此命令可以带一个
+       前缀参数N，表示粘贴连续的N个标题。
+       
