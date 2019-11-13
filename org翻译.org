@@ -305,7 +305,34 @@ M-g p or M-g M-p(previous-error)
 并且可以输出它们(参看12章【输出】，138页)。
    org可以识别规则列表，不规则列表和描述列表。
    ·不规则列表项以“-”，“+”或“*”为描述符号。
-   ·规则列表项以
+   ·规则列表项以周期性或带括号的数字开头，例如'1.'或者'1)'。如果你想要以一个不同的数
+    值开头，如20，就以'[@20]'开头。这些结构可以用在任意列表项，以便强化编号。
+   ·描述列表是不规则列表项，包含了分隔符'::'来区分描述项目的名称和描述内容。
+
+   在第一行，同一列表的项目必须有相同的缩进。特别地，如果一个规则列表序号到达'10.'，
+然后列表中十以后的两位数必须按照左对齐标出。一个条目结束前，它的下一行的缩进要小于或等
+于这个条目的描述符号/序号。
+   当所有条目都结束时，这个列表就结束，这意味着在一个项目的最高层，所有的项目的缩进都
+有小于或等于它。列表也会以两个空行为结尾。在这种情况下，所有的条目都会关闭。这里有个
+例子：
+     * Lord of the Rings
+     My favorite scenes are (in this order)
+     1.The attack of the Rohirrim
+     2.Eowyn`s fight with the witch king
+       + this was already my favorite scenes in the book
+       + I really like Miranda Otto.
+     3.Peter Jackson being shot by Legolas
+       - on DVD only
+       He makes a really funny face when it happens.
+     But in the end, no individual scenes matter but the film as a whole.
+     Important actors in this film are:
+     - Elijah Wood :: He plays Frodo
+     - Sean Astin  :: He plays Sam, Frodo`s friend. I still remember him
+          very well from his role as Mikey Walsh in /The Goonies/.
+   org通过调整填充和打包命令来
+
+
+
 
 
 
